@@ -1,0 +1,342 @@
+1.아래의 프린트 결과를 예측해 보고, 코딩 후 결과를 확인 하시오.
+
+
+class SCE {
+	public static void main(String[] args) {
+		int num1 = 0;
+		int num2 = 0;
+		boolean result;    
+
+		result = ((num1 += 10) < 0) && ((num2 += 10) > 0);
+    System.out.println("result = " + result);
+    System.out.println("num1 = " + num1);
+    System.out.println("num2 = " + num2 + '\\n'); // "
+	
+    result = ((num1 += 10) > 0) || ((num2 += 10) > 0);
+    System.out.println("result = " + result);
+    System.out.println("num1 = " + num1);
+    System.out.println("num2 = " + num2);
+	}
+}
+
+2. 전위 증가 연산자와 후위 증가 연산자의 차이는?
+선연산 후출력
+선출력 후연산
+3.. 아래의 비트 연산자 4가지를 설명하시오.
+& | ^ ~
+전부 비트단위 연산자 0b01010101
+& = and
+| = or
+^ = ex-or
+~ = not
+4. 쉬프트 연산자에 대하여 설명하시오.
+<<, >> 뒤에 숫자만큼 밀어내는 연산자
+num = 0b00001111; num<<=4; 
+num = 0b11110000;
+
+5. 아래의 출력값을 예측하시오.
+
+class AssignSteResult {
+	public static void main(String[] args) {
+		int num1 = 10, num2 = 20, num3 = 30;
+		num1 = num2 = num3;    
+    
+    System.out.println(num1);	
+    System.out.println(num2);
+    System.out.println(num3);
+	}
+}
+
+30
+30
+30
+
+6. 아래의 출력값을 예측하시오.
+
+class SCE {
+	public static void main(String[] args) {
+		int num1 = 0;
+		int num2 = 0;
+		boolean result;    
+		num1 += 10;
+    		num2 += 10;        
+    		result = (num1 < 0) && (num2 > 0);
+
+    		System.out.println("result = " + result);
+    		System.out.println("num1 = " + num1);
+   		 System.out.println("num2 = " + num2 + '\\n'); //+ "\n"??
+	
+   		 num1 += 10;
+   		 num2 += 10;        
+   		 result = (num1 > 0) || (num2 > 0);
+
+   		 System.out.println("result = " + result);
+   		 System.out.println("num1 = " + num1);
+   		 System.out.println("num2 = " + num2);
+	}
+}
+
+false 
+10
+10
+
+true 
+20
+20 ( 괄호를 잘 확인할것, 괄호가 있으면 우선연산)
+
+7. 아래의 출력값을 예측하시오.
+
+
+class AddNum {
+	public static void main(String[] args) {
+		int result = 3 + 6;
+		System.out.println("3 + 6 = " + result);  
+  
+		result += 9;
+    System.out.println("3 + 6 + 9 = " + result);
+    
+    result += 12;
+    System.out.println("3 + 6 + 9 + 12 = " + result);
+	}
+}
+
+3+6 = 9
+3+6+9=18
+3+6+9+12=30
+
+
+8.변수 하나를 선언후, 음수이면 false, 양수이면 true 를 출력 하시오
+
+출력:
+10는 true입니다.
+
+import java.util.Scanner;
+
+public class Ex {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);		
+		int n = sc.nextInt();
+		
+		boolean result;
+		result = (n%2==0) ? true : false;
+		System.out.println(n+"는(은) "+result+"입니다.5");
+	}
+
+}
+
+
+9. 아래의 수를 선언후 가장 큰수를 출력하는 프로그램을 작성 하시오.
+ 
+int n1 = 100;
+int n2 = 90;
+int n3 = 80;
+
+import java.util.Scanner;
+
+public class Quiz01 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("비교할 숫자의 개수를 입력해 주세요.");
+		int n1 = sc.nextInt();
+
+		System.out.println("비교할 숫자들을 입력해 주세요.");
+		int num[] = new int[n1];
+		int max = 0;
+		for (int a = 0; a < n1; a++) {
+
+			num[a] = sc.nextInt();
+
+			if (max < num[a])	//max = (num[a]>max) ? num[a] : max;
+				max = num[a];
+		}
+		
+		System.out.println("가장큰수 : "+ max);
+		
+		sc.close();
+	}
+
+}
+
+
+10. 조건문의 3가지 종류를 나열하고 설명하시오.
+if else
+switch(){
+ case # :
+}
+3항 연산자
+@ = (변수 + (연산자) + 변수) ?  true 값 : false 값
+
+
+
+11 아래의 프로그램을 짜시오.
+
+ 국어:80 수학:80 영어:60 총점과 평균을 출력하고, 평균에 따른 수우미양가를 출력 하시오.
+
+import java.util.Scanner;
+
+public class Test03 {
+
+	public static void main(String[] args) {
+		
+		System.out.println("과목수를 입력해 주세요");
+		
+		
+		Scanner sc=new Scanner(System.in);
+		int n1=sc.nextInt();
+		int num[]=new int[n1];
+		int total = 0;
+		System.out.println("점수를 입력해 주세요");
+		
+		for(int a = 0;a<n1;a++) {
+			num[a]=sc.nextInt();
+			total += num[a];		
+			
+		}
+		double avg = (double)total/n1; 
+		System.out.println("평균 : "+avg);
+		System.out.println("총점 : "+total);
+		
+		if(avg>=90)
+			System.out.println("수 입니다.");
+		
+		else if(avg>=80)
+			System.out.println("우 입니다.");
+		
+		else if(avg>=70)
+			System.out.println("미 입니다.");
+		
+		else if(avg>=60)
+			System.out.println("양 입니다.");
+		
+		else 
+			System.out.println("가 입니다.");
+		
+		
+		sc.close();
+	}
+
+}
+
+
+12. int num = 33 할당 후 해당 숫자 짝수면 짝수 입니다 출력. 홀수면 홀수 출력
+
+import java.util.Scanner;
+
+public class Ex {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);		
+		int n = sc.nextInt();
+		
+		String result;
+		result = (n%2==0) ? "짝수" : "홀수";
+		System.out.println(n+"는(은) "+result+"입니다.5");
+		
+		sc.close();
+	}
+
+}
+
+
+13.아래를 삼항연산자를 사용하여 프로그래밍 하시오.
+
+80, 33 ,55 최대값을 출력하시오.
+
+
+public class Ex {
+
+	public static void main(String[] args) {
+
+		int n1 = 80;
+		int n2 = 33;
+		int n3 = 55;
+		
+		int mid ;
+		
+		int big = (n1>n2)? (mid=(n1>n3)?n1:n3) : (mid = (n2>n3)? n2:n3);
+		System.out.println(big);
+		
+	}
+
+}
+
+
+14. switch 문에서 '걸어서 하늘까지' 를 설명하시오.
+-중간에 break가 없으면 case 시작지점에서 default 를 제외한 모든 case를 출력하고 종료된다.
+ 
+15.int num = -10 을 할당 후 해당 정수에 대한 절댓값을 출력하는 프로그램을 작성하시오.
+-
+import java.util.Scanner;
+
+public class Ex {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		/*
+		 * int re; re = (n >= 0) ? n : -n;
+		 * System.out.println(re);
+		 */
+
+		if (n >= 0)
+			System.out.println(n);
+		else
+			System.out.println(-n);
+
+		sc.close();
+	}
+
+}
+
+16.복습
+HelloWorld.java 소스코드 작성후 컴파일 및 실행되는 과정을 설명하시오.
+source -> 컴파일 -> .class ->JVM -> os ->cpu
+
+
+17
+홀,짝 판별 프로그램
+ - 오전에 작성했던 프로그램의 확장버전
+
+int형 변수 하나를 선언하여 값 입력
+입력된 값이 0~100 이내의 범위에서 홀수인지 짝수인지를 판별
+
+
+실행결과 :
+
+3 (은)는 0~100 사이의 정수입니다.
+3 (은)는 [홀수] 입니다.
+
+8 (은)는 0~100 사이의 정수입니다.
+8 (은)는 [짝수] 입니다.
+0 (은)는 0~100 사이의 정수입니다.
+0은 짝수도 홀수도 아닙니다.
+
+입력된 숫자 : -4
+0~100 사이의 숫자만 입력해주세요.
+import java.util.Scanner;
+
+public class Ex {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);		
+		int n1 = sc.nextInt();
+		
+		if((n1<=100) && (n1>=0)){
+			System.out.println(n1+"(은)는 0~100 사이의 정수입니다.");
+			if(n1%2==0)
+				System.out.println(n1+"(은)는 [짝수] 입니다.");
+			else if(n1%2!=0)
+				System.out.println(n1+"(은)는 [홀수] 입니다.");
+			else
+				System.out.println(n1+"짝수도 홀수도 아닙니다.");
+		}
+		else 
+			System.out.println("0~100 사이의 숫자만 입력해주세요.");
+		
+		sc.close();
+		
+	}
+}

@@ -1,0 +1,62 @@
+1. JVM 에 대하여 설명하시오.(인터넷에서 찾아 보고 한번 정도는 읽어 보세요)
+java virtual machine 
+java를 os(window)에 상관없이 실행하기 위해 java를 위한 실행 환경을 만든것.
+바이트코드 : java 파일을 컴파일한 결과물 .class 형식
+source코드를 컴파일해 jvm이 사용하는 .class 파일로 바꿔준다. 
+2. 일반적인 프로그램과 java 가 실행되는 차이점은(오늘 배운 PPT 그림 참고 하세요).
+일반적인 과정: source ->OS 시스템(operating system, window)->Hardware
+java의 과정:source ->JVM(Java Virtual Machine)->OS 시스템(operating system)->Hardware
+sourc에서 JVM이 인식할수있게 하는 과정이 컴파일
+JVM에서 OS으로 보내는 과정이 run(inter prete)
+3.변수란 무엇인가
+4.변수 선언의 의미는?
+컴파일러에게 해당 이름으로 해당 자료형에 맞는 메모리공간을 할당
+
+5.들여쓰기를 왜 해야 하는가?
+코드의 흐름과 가독성을 위해 해야됩니다.
+6.주석은 컴파일시 어떻게 되는가?
+주석은 컴파일 과정에 영향을 주지 않는다. 사람이 코드를 이해하는데 도움을 준다.
+주석은 컴파일시 코드 내용으로 인식되지 않고 무시되어 연산 결과에 반영되지 않아 
+프로그램에 영향을 주지 않는다. 
+다만 사람이 코드를 이해하기 쉽도록 도와주기 위해서 작성한다.
+
+7.컴파일이란 무엇인가?
+고급언어로 작성된 소스코드를 기계어(이진수코드 등)으로 바꾸는 과정
+8.java의 자료형 9개는?
+boolean, char, byte, short, int, long, float, double,
+9.int num; 을 메모리로 설명해 보시오.
+10.컴퓨터에서의 음의 정수 표현법은?
+표현하고자 하는 정수를 2의 보수법으로 표현한다. (0과 1을 바꾸고 1을 더한다.)
+11.컴퓨터에서 실수에 오차가 존재 할수 밖에 없는 이유를 설명하시오.
+무한한 실수를 유한한 메모리로 옮기는 과정에서 실수의 범위를 정해 
+표현할수있는 값을 미리 지정해 근사값으로 사용한다
+12. -5의 '컴퓨터에서의 2진수 값'을 나타내시오.
+00000101=5 ->2의 보수 11111011=-5 
+-프로그램밍 문제 
+국어 90 영어 70 수학 60 점의 평균 및 총합을 출력하시오.
+변수명 유의해서 프로그램 짜주세요.
+
+import java.util.Scanner;
+
+public class Test01 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("과목수를 입력해주세요");
+
+		int a = sc.nextInt();
+		double f=a;
+		int[] grade = new int[a];
+		double total = 0;
+		for (int b = 0; b < a; b++) {
+			grade[b] = sc.nextInt();
+			total += grade[b];
+		}
+		total /= f;
+
+		System.out.println(total);
+		sc.close();
+	}
+}
+
+
