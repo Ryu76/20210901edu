@@ -1,0 +1,228 @@
+1. 메소드 오버로딩이란? 
+한 클래스 내에 이미 사용하려는 이름과 같은 이름을 가진 
+메소드가 있더라도 매개변수의 개수 또는 타입이 다르면, 같은 이름을 사용해서 
+메소드를 정의할수 있다.
+이것이 메소드 오버로딩이다.
+매개변수의 타입, 개수, 순서 중 하나가 달라야 한다.
+	오버로딩의 조건
+	1)메소드 이름이 같아야 한다.
+	2)매개변수의 개수또는 타입이 달라야 한다.
+	3)매개변수는 같고 리턴타입이 다른경우는 오버로딩이 성립되지 않는다.
+	4)오버로딩된 메서드들은 매개 변수에 의해서만 구별될수 있다.
+
+
+
+2. 생성자 오버로딩이란?
+생성자를 두개 이상 구현하는 경우를 생성자 오버로딩이라고 부른다.
+생성자 오버로딩을 통해 생성된 객체의 유형을 구분할수 있다.
+
+3. 메소드 오버로딩을 적용한 대표적인 함수는?
+println(); 
+
+4. this의 용도는?
+인스턴스 변수를 불러오는 역할을 한다.
+
+5. this 함수에 대하여 설명하시오.
+객체에서 자체 생성자를 호출할 수 있다.
+
+6. 스트링 객체를 생성하는 2가지 방법은?
+
+String str1 =  new String("simple");
+String str2 =  "simple";
+
+
+7. 아래의 결과를 예측하고,이유를 설명하시오.
+
+String str1 = "Simple String"; 
+String str2 = "Simple String";
+
+String str3 = new String("Simple String");
+String str4 = new String("Simple String");
+
+//참조변수의 참조 값 비교
+if(str1 == str2)
+   System.out.println("str1과 str2는 동일 인스턴스 참조");
+else
+   System.out.println("str1과 str2는 다른 인스턴스 참조");
+
+//참조변수의 참조 값 비교
+if(str3 == str4)
+   System.out.println("str3과 str4는 동일 인스턴스 참조");
+else
+   System.out.println("str3과 str4는 다른 인스턴스 참조");
+
+결과
+
+str1과 str2는 동일 인스턴스 참조
+
+str3과 str4는 다른 인스턴스 참조
+​
+
+현재 str1과 str2안에는 Simple String이 담겨있는 같은 메모리 주소값이 있다. 
+그렇기 때문에 비교하면 같다고 나오는 것이다.
+
+str3 메모리  new String  메모리  str4 메모리 new String 메모리 서로 각각 메모리를 만든다
+str3와 str4안에는 Simple String이 담겨있는 다른 메모리 주소값을 가지고 있다. 
+각각 객체를 만들었기 때문에 다른 메모리 주소값을 가지고 있는것이다. 
+그렇기 때문에 다른 인스턴스를 참조한다고 한다.
+
+
+8. imutable 에 대하여 설명하시오.
+불변의, 변경할수 없는
+imutable class 는 변경이 불가능한 클래스 
+가변적이지 않는 클래스
+장점 : 생성자, 접근 메소드에 대한 방어 복사가 필요 없다.
+멀티 스레드 환경에서 동기화 처리 없이 객체를 공윻ㄹ수 있다 
+불변이기 때문에 객체가 안전하다.
+단점 : 
+객체가 가지는 값마다 새로운 객체가 필요하다 
+메모리 누수와 새로운 객체를 계속 생성해야하기 때문에 성능저하를 발생시킬수 있다.
+
+
+
+9. 사용자로부터 받은 문자열(영문으로)에서 자음과 모음 개수를 계산하는 프로그램을 작성하라.
+(연속적이로 종료하시겠습니까 y 할때 까지 계속)
+
+import java.util.Scanner;
+
+class Cut {
+
+	private String wo;
+	private char save;
+	private int aeiou = 0;
+	private int etc = 0;
+	Scanner sc = new Scanner(System.in);
+
+	public void get(){
+		System.out.println("문장을 입력해 주세요.");
+		this.wo = sc.nextLine();
+
+	}
+
+	public void cut() {
+		for (int i = 0; i < wo.length(); i++) {
+			save = wo.charAt(i);
+			switch (save) {
+			case 'a':
+			case 'e':
+			case 'i':
+			case 'o':
+			case 'u':
+			case 'A':
+			case 'E':
+			case 'I':
+			case 'O':
+			case 'U':
+				aeiou++;
+				break;
+			case ' ':
+				continue;
+			default:
+				etc++;
+				break;
+			}
+		}
+
+	}
+
+	public void show() {
+		System.out.println("자음 : " + etc + "개");
+		System.out.println("모음 : " + aeiou + "개");
+	}
+
+	public void take() {
+		while (true) {
+			String ch;
+			Cut c1 = new Cut();
+			c1.get();
+			c1.cut();
+			c1.show();
+			System.out.println("계속 진행하실거면 Y, 끝내실거면 나머지 키를 눌러주세요.");
+			ch = sc.next();
+			if ((ch.equals("y")) || ch.equals("Y"))
+				continue;
+			else
+				break;
+		}
+	}
+
+}
+
+public class Len {
+	public static void main(String[] args) {
+
+		Cut ct = new Cut();
+//		ct.cut();
+//		ct.show();
+		ct.take();
+
+	}
+}
+
+10.사용자에게 받은 문자열을 역순으로 화면에 출력하는 프로그램을 작성하시오.
+
+입력:abcde
+출력:edcba
+
+import java.util.Scanner;
+
+public class Revers {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String ch = sc.next();
+		char[] rev = new char[ch.length()];
+
+		for (int i = 0; i < ch.length(); i++) {
+			rev[i] = ch.charAt(i);
+		}
+		for (int i = ch.length() - 1; i >= 0; i--) {
+			System.out.print(rev[i]);
+		}
+		sc.close();
+
+	}
+
+}
+
+11.2와 100 사이에 있는 모든 소수(prime number)를 찾는 프로그램을 작성하라. 
+(주어진 정수 k를 2부터 k-1까지의 숫자로 나누어서 나머지가 0인 것이 하나라도 있으면 소수가 아니다.)
+
+
+import java.util.Scanner;
+
+//11.2와 100 사이에 있는 모든 소수(prime number)를 찾는 프로그램을 작성하라. 
+//(주어진 정수 k를 2부터 k-1까지의 숫자로 나누어서 나머지가 0인 것이 하나라도 있으면 소수가 아니다.)
+
+class Prime {
+
+	private int end;
+	private int save;
+
+	Prime() {
+	}
+
+	Prime(int end) {
+		this.end = end;
+	}
+
+	public void sosu() {
+		for (int i = 2; i <= end; i++) {
+			save = 0;
+			for (int j = 2; j <= i; j++) {
+				if (i % j == 0)
+					save++;
+			}
+			if (save == 1)
+				System.out.println(" " + "'" + i + "'");
+		}
+	}
+}
+
+public class Sosu {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Prime pr = new Prime(sc.nextInt());
+		pr.sosu();
+		sc.close();
+	}
+}

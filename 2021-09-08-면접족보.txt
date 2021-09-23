@@ -1,0 +1,257 @@
+1.  함수는 어떻게 알아 볼 수 있을까? 함수인지를 어떻게 아는가?
+함수명 뒤에 중괄호가 있으면 함수다
+
+2. 함수는 어떻게 만들까?
+함수는 꼭 클래스 안에 만들어야 한다
+함수명(괄호){중괄호} //함수 정의
+
+3. 함수는 어떻게 써먹을까?(함수 호출) 
+
+함수명(괄호);      //함수 호출
+
+4.아래를 함수로 만들어라
+printStar(1);
+printStar(2);
+printStar(3);
+
+*
+
+*
+**
+
+*
+**
+***
+
+4.아래를 함수로 만들어라
+printStar(5);
+printStar(4);
+printStar(3);
+
+
+*****
+****
+***
+**
+*
+
+****
+***
+**
+*
+
+***
+**
+*
+
+
+5 아래의 함수를 만들고, 해당 함수를 호출하여 확인 하시오.
+
+함수이름: getGrade( 90 .4)
+
+출력
+90.4 수 입니다.
+
+
+6. 아래의 함수를 만드시오.
+
+
+printGugudan(5); // 1단 부터 5단 까지 출력
+printGugudan(9); // 1단 부터 9단 까지 출력
+
+
+import java.util.Scanner;
+
+public class Jokbo {
+	
+	public static void Gugudan(int dan) {
+		
+		for(int a = 2;a<=dan;a++) {
+			for(int b =2;b<=9;b++) {
+				System.out.println(a+" * "+b+" = "+a*b);
+			}
+		}
+	}
+	
+	public static void main(String [] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int dan = sc.nextInt();
+		
+		Gugudan(dan);
+		sc.close();
+		
+	}
+}
+
+
+7. 아래의 함수를 만드시오.
+
+printGugudan(1, 100); // 1부터 100까지의 합
+printGugudan(3, 1000); // 3부터 1000까지의 합
+-만약 
+-printGugudan(1000, 3); 처럼 위치가 바뀌어도  3부터 1000까지의 합으로 출력 할것
+
+import java.util.Scanner;
+
+public class Jokbo {
+
+	public static void total(int num1, int num2) {
+
+		int total= 0;
+		int cha = 0;
+		
+		if(num1>num2) {
+			cha = num1;
+			num1 = num2; 
+			num2= cha;
+		}
+		for(int a = num1; a<=num2;a++) {
+			total+=a;
+		}
+		System.out.println("합 : "+total);
+	}
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int num1 = sc.nextInt();
+		int num2 = sc.nextInt();
+		
+		total(num1, num2);
+
+	}
+}
+
+
+7. 아래의 함수를 만드시오.
+
+getCircleArea(10);   
+출력 - 반지름은 31.4 입니다.
+
+import java.util.Scanner;
+
+public class Circle {
+
+	public static void circle(int rad) {
+
+		double pie = rad * rad * 3.14;
+
+		System.out.println("원의 넓이 = " + pie);
+	}
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int rad = sc.nextInt();
+		circle(rad);
+	}
+}
+
+
+8. 파라미터 두개를 받아 사각형의 넓이를 구하는 함수를 만드시오. -함수 이름 파라미터 이름 등은 개발자가 정할것
+
+import java.util.Scanner;
+
+public class Fangle {
+	
+	public static void fangle(int n1, int n2) {
+		
+		int total = n1*n2 ;
+		System.out.println("넓이 = "+total);
+		
+	}
+	public static void main(String []args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int n1 = sc.nextInt();
+		int n2 = sc.nextInt();
+		fangle(n1, n2);
+		
+		
+	}
+}
+
+
+9. 파라미터 두개를 받아 삼각형의 넓이를 구하는 함수를 만드시오. -함수 이름 파라미터 이름 등은 개발자가 정할것
+
+import java.util.Scanner;
+
+public class Fangle {
+	
+	public static void tangle(int n1, int n2) {
+		
+		int total = n1*n2/2 ;
+		System.out.println("넓이 = "+total);
+		
+	}
+	public static void main(String []args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int n1 = sc.nextInt();
+		int n2 = sc.nextInt();
+		tangle(n1, n2);
+		
+		
+	}
+}
+
+
+10.아래의 별을 찍으시오.(함수 안써도 됨)
+     *
+    ***
+   *****
+  *******
+			(썜 방법)
+			for(int i=1; i<=5; i++) {
+				for(int j =5; j>i; j--) {
+					System.out.print(" ");
+			}
+			
+			for(int j=1; j<=i; j++) {
+				System.out.print("*");
+			}
+			
+			for(int j=1; j<i; j++) {
+				System.out.print("*");
+			}
+
+
+import java.util.Scanner;
+
+public class Star {
+
+	public static void star(int star) {
+
+		for (int i = 1; i <= star; i++) {
+			for (int j = star; j >= i; j--) {
+				System.out.print(" ");
+			}
+
+			for (int j = 1; j < i * 2; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int star = sc.nextInt();
+		star(star);
+		sc.close();
+
+	}
+
+}
+
+
+
+11.왜 함수를 만들어 사용하는지에 대하여 설명하시오.
+main의 간소화를 위해 
+어떤 기능을 하는 함수인지 알면 main 을 이해하기 더 쉬워짐
+어떠한 문제를 처리하기 위한 방법을 소스코드로 묶어놓고 필요에 따라 호출하여
+    사용하기 위해서 이다.
